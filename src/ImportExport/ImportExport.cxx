@@ -21,7 +21,6 @@
 #include <V3d_PositionalLight.hxx>
 #include <V3d_DirectionalLight.hxx>
 
-#include <Quantity_Parameter.hxx>
 
 #include <Utils.hxx>
 #include <AisMesh.hxx>
@@ -589,9 +588,9 @@ namespace ie
 
         if (!myDrawCompatible)
         {
-          Quantity_Parameter aColorR;
-          Quantity_Parameter aColorG;
-          Quantity_Parameter aColorB;
+            Standard_Real aColorR;
+            Standard_Real aColorG;
+            Standard_Real aColorB;
 
           aLight->Color ().Values (aColorR, aColorG, aColorB, Quantity_TOC_RGB);
 

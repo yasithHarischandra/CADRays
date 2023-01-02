@@ -36,6 +36,7 @@
 #include <V3d_View.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <Image_AlienPixMap.hxx>
+#include <Image_Format.hxx>
 
 #include <ImRaytraceControls.h>
 
@@ -337,7 +338,7 @@ void AppGui::Draw (AIS_InteractiveContext* theAISContext, V3d_View* theView, boo
     if (toSave)
     {
       Image_AlienPixMap aPixMap;
-      Image_PixMap::ImgFormat aFormat = Image_PixMap::ImgRGB;
+      Image_Format  aFormat = Image_Format_RGB;
       Graphic3d_BufferType aBufferType = Graphic3d_BT_RGB;
       
       static int aLogoPos = 0;
@@ -345,7 +346,7 @@ void AppGui::Draw (AIS_InteractiveContext* theAISContext, V3d_View* theView, boo
       if (anExt == ".exr" || anExt == ".hdr")
       {
         // dump HDR image
-        aFormat = Image_PixMap::ImgRGBF;
+        aFormat = Image_Format_RGBF;
         aBufferType = Graphic3d_BT_RGB_RayTraceHdrLeft;
       }
       else
@@ -357,7 +358,7 @@ void AppGui::Draw (AIS_InteractiveContext* theAISContext, V3d_View* theView, boo
           ImGui::OpenPopup ("Insert logo##Dialog");
 
           // dump LDR image
-          aFormat = Image_PixMap::ImgRGB;
+          aFormat = Image_Format_RGB;
           aBufferType = Graphic3d_BT_RGB;
 
           aLogoPos = 0;

@@ -13,6 +13,7 @@
 
 #include <AIS_Shape.hxx>
 #include <AIS_TexturedShape.hxx>
+#include <Graphic3d_Texture2Dmanual.hxx>
 
 namespace model
 {

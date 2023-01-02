@@ -25,6 +25,8 @@
 #include <TopExp_Explorer.hxx>
 #include <TopTools_MapOfShape.hxx>
 #include <Prs3d_ShadingAspect.hxx>
+#include <TopLoc_Datum3D.hxx>
+
 
 // Returns AIS context.
 extern Handle (AIS_InteractiveContext)& TheAISContext ();
@@ -532,7 +534,7 @@ namespace model
         aSubShape->SetMaterial (aGraphicAspect->FrontMaterial ());
       }
 
-      const Handle (Geom_Transformation)& aLocalTransform = aShape->LocalTransformationGeom ();
+      const Handle (TopLoc_Datum3D)& aLocalTransform = aShape->LocalTransformationGeom ();
 
       if (!aLocalTransform.IsNull ())
       {

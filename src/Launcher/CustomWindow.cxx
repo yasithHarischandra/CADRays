@@ -45,9 +45,9 @@ CustomWindow::CustomWindow (const Handle(Aspect_DisplayConnection)& theXDisplay,
 // function : Ratio
 // purpose  :
 // =======================================================================
-Quantity_Ratio CustomWindow::Ratio() const
+Standard_Real CustomWindow::Ratio() const
 {
-  return Quantity_Ratio(XSize)/ Quantity_Ratio(YSize);
+  return Standard_Real(XSize)/ Standard_Real(YSize);
 }
 
 // =======================================================================

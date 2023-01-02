@@ -606,8 +606,9 @@ AppViewer::AppViewer (const std::string theTitle,
   // Create viewer
   TCollection_ExtendedString a3DName ("Vis3D");
 
-  Handle (V3d_Viewer) a3DViewer = new V3d_Viewer (aGraphicDriver,
-    a3DName.ToExtString(), "", 1000.0, V3d_XposYnegZpos, Quantity_NOC_GRAY20, V3d_ZBUFFER, V3d_PHONG);
+  //V3d_Viewer constructor changed in OCC 7.1.0
+  Handle(V3d_Viewer) a3DViewer = new V3d_Viewer(aGraphicDriver);// ,
+    //a3DName.ToExtString(), "", 1000.0, V3d_XposYnegZpos, Quantity_NOC_GRAY20, V3d_ZBUFFER, V3d_PHONG);
 
   myInternal->AISContext = new AIS_InteractiveContext (a3DViewer);
 
@@ -1256,7 +1257,7 @@ void AppViewer::Run()
   {
     if (myTestingData->MaxFramesCount > 0)
     {
-      if (myTestingData->PixMap.InitZero (Image_PixMap::ImgRGB, Standard_Size(myRTSize.x), Standard_Size(myRTSize.y)))
+      if (myTestingData->PixMap.InitZero (Image_Format_RGB, Standard_Size(myRTSize.x), Standard_Size(myRTSize.y)))
       {
         myInternal->View->View()->BufferDump(myTestingData->PixMap, Graphic3d_BT_RGB);
       }
